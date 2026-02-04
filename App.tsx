@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   Droplets, 
@@ -58,7 +57,6 @@ const QuoteModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen
     setUploadProgress(10);
 
     try {
-      // Create a fresh instance for the request
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       const response = await ai.models.generateContent({
@@ -350,14 +348,12 @@ const Hero: React.FC<{ onOpenQuote: () => void }> = ({ onOpenQuote }) => {
           <div className="absolute inset-0 bg-electric-blue/5 blur-[120px] rounded-full animate-pulse"></div>
           
           <div className="relative w-full aspect-[4/5] rounded-[60px] border border-white/10 overflow-hidden shadow-2xl group ring-1 ring-white/10">
-             {/* Realistic Imagery */}
              <img 
-               src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop" 
-               alt="Pressure Washing" 
+               src="https://lh3.googleusercontent.com/p/AF1QipOfHIlIhlo0sw3GHM-0RxKhD0LXkc9LC9NFzLt9=s1200" 
+               alt="Splash Soldiers Tactical Restoration" 
                className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
              />
              
-             {/* Overlay HUD */}
              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
              
              <div className="absolute top-12 left-12 flex flex-col gap-3">
@@ -405,10 +401,10 @@ const Hero: React.FC<{ onOpenQuote: () => void }> = ({ onOpenQuote }) => {
 
 const Features: React.FC = () => {
   const stats = [
-    { icon: <Clock />, label: "Response", value: "Rapid Deployment", desc: "Short notice missions accepted daily." },
-    { icon: <ShieldAlert />, label: "Security", value: "Eco-Strategic", desc: "Safe soft-wash formulas for your home." },
-    { icon: <Heart />, label: "Diversity", value: "LGBTQ+ Friendly", desc: "Proudly serving all community sectors." },
-    { icon: <Award />, label: "Ranking", value: "4.9 Elite Rating", desc: "Highly recommended by local command." },
+    { icon: <Clock size={32} />, label: "Response", value: "Rapid Deployment", desc: "Short notice missions accepted daily." },
+    { icon: <ShieldAlert size={32} />, label: "Security", value: "Eco-Strategic", desc: "Safe soft-wash formulas for your home." },
+    { icon: <Heart size={32} />, label: "Diversity", value: "LGBTQ+ Friendly", desc: "Proudly serving all community sectors." },
+    { icon: <Award size={32} />, label: "Ranking", value: "4.9 Elite Rating", desc: "Highly recommended by local command." },
   ];
 
   return (
@@ -418,7 +414,7 @@ const Features: React.FC = () => {
           {stats.map((stat, idx) => (
             <div key={idx} className="p-10 border border-white/5 rounded-[40px] bg-black/30 hover:bg-zinc-900/40 hover:border-electric-blue/20 transition-all group relative overflow-hidden">
               <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 electric-blue group-hover:scale-110 group-hover:border-electric-blue/40 transition-all duration-500">
-                {React.cloneElement(stat.icon as React.ReactElement, { size: 32 })}
+                {stat.icon}
               </div>
               <p className="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-black mb-3">{stat.label}</p>
               <h3 className="text-2xl font-oswald uppercase italic font-black mb-3 text-white tracking-tight">{stat.value}</h3>
@@ -649,7 +645,7 @@ const Footer: React.FC = () => {
               </a>
               <div className="flex items-center gap-5 text-gray-400 text-xl font-black italic tracking-tight">
                 <Mail size={20} className="electric-blue" />
-                facebook.com/splash
+                facebook.com
               </div>
               <div className="flex items-center gap-5 text-gray-400 text-xl font-black italic tracking-tight">
                 <Clock size={20} className="electric-blue" />
